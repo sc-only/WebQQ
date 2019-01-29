@@ -1,0 +1,181 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+}
+a{
+    text-decoration:none;
+    outline: none;
+    color: #b2c8f9;
+}
+#account4 a{
+    color: #fff;
+}
+#back1{
+    height: 100%;
+    background: url(../img/1.jpg)no-repeat;
+    background-size: 100% 100%;
+    /* display: none; */
+}
+#box1{
+    width: 23%;
+    height: 56%;
+    background-color: #fff;
+    position: absolute;
+    top: 22%;
+    left: 45%;
+    border-radius: 7px;
+}
+#user1{
+    float: left;
+    padding: 10%;
+}
+#manager1{
+    color: #b2c8f9;
+    float: right;
+    padding-right: 4%;
+    padding-top: 12%;
+    cursor: pointer;
+}
+#account1{
+    width: 80%;
+    height: 9%;
+    margin:33% 10%;
+    border: 1px solid #e7e7e7;
+    border-radius: 15px;
+}
+.icon-yonghu{
+    color: #e7e7e7;
+    font-size: 20px;
+    line-height: 160%;
+    padding-left:5%;
+}
+#text1,#text3{
+    width: 74%;
+    height: 70%;
+    margin-left:10px;
+    border: none;
+    outline: none;
+    color:#e7e7e7;
+    font-size: 17px;
+}
+#account3{
+    width: 80%;
+    height: 9%;
+    margin:-23% 10%;
+    border: 1px solid #e7e7e7;
+    border-radius: 15px;
+}
+#account4{
+    width: 80%;
+    height: 9%;
+    margin:35% 10%;
+    border: 1px solid #e7e7e7;
+    border-radius: 15px;
+    background-color: #5292f6;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 160%;
+}
+#p1{
+    font-size: 15px;
+    color: #ccc;
+    margin-top: -33%;
+    margin-left: 10%;
+    cursor: pointer;
+}
+#p2{
+    color: #99bbf7;
+    margin-top: -7%;
+    margin-left: 67%;
+    cursor: pointer;
+}
+.icon-Group-{
+    color: #e7e7e7;
+    font-size: 20px;
+    line-height: 160%;
+    padding-left:5%;
+}
+#back2{
+    height: 100%;
+    background: url(../img/2.jpg)no-repeat;
+    background-size: 100% 100%;
+    /* display: none; */
+}
+#box2{
+    width: 23%;
+    height: 56%;
+    background-color: #fff;
+    position: absolute;
+    top: 22%;
+    left: 45%;
+    border-radius: 7px;
+}
+#user2{
+    float: left;
+    padding: 10%;
+}
+#manager2{
+    color: #b2c8f9;
+    float: right;
+    padding-right: 4%;
+    padding-top: 12%;
+    cursor: pointer;
+}
+#account2{
+    width: 80%;
+    height: 9%;
+    margin:33% 10%;
+    border: 1px solid #e7e7e7;
+    border-radius: 15px;
+}
+.icon-yonghu{
+    color: #e7e7e7;
+    font-size: 20px;
+    line-height: 160%;
+    padding-left:5%;
+}
+#text2,#text4{
+    width: 74%;
+    height: 70%;
+    margin-left:10px;
+    border: none;
+    outline: none;
+    color:#e7e7e7;
+    font-size: 17px;
+}
+#account5{
+    width: 80%;
+    height: 9%;
+    margin:-23% 10%;
+    border: 1px solid #e7e7e7;
+    border-radius: 15px;
+}
+#account6{
+    width: 80%;
+    height: 9%;
+    margin:35% 10%;
+    border: 1px solid #e7e7e7;
+    border-radius: 15px;
+    background-color: #5292f6;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 160%;
+}
+#p3{
+    color: #99bbf7;
+    margin-top: -33.6%;
+    margin-left: 67%;
+    cursor: pointer;
+}
+.icon-hezuohuobanmiyueguanli{
+    color: #e7e7e7;
+    font-size: 20px;
+    line-height: 160%;
+    padding-left:5%;
+}

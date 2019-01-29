@@ -1,0 +1,101 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+}
+#register1{
+    height: 100%;
+    width: 100%;
+    background-color: #e5e5e5;
+} 
+#rebox1{
+    width: 60%;
+    height: 80%;
+    background-color: #fff;
+    position: absolute;
+    left: 20%;
+    top: 10%;
+    box-shadow: -10px 0 20px 0 #ccc,  10px 0 20px  0 #ccc, 0 10px 20px 0 #ccc, 0 -10px 20px 0 #ccc;
+} 
+#retop1{
+    width: 100%;
+    height: 10%;
+    border-bottom: 2px solid #f6f5fb;
+    position: relative;
+}
+#rt1{
+    font-weight: 700;
+    font-size: 30px;
+    color: #ccc;
+    line-height: 160%;
+    position: absolute;
+    cursor: pointer;
+    z-index: 2;
+}
+#rt2{
+    width:100%;
+    color: #356fd0;
+    font-size: 25px;
+    text-align: center;
+    position: absolute;
+    line-height: 220%;
+}
+#rb_box1{
+    width: 100%;
+    height: 20%;
+}
+#rebody1{
+    width: 45%;
+    height: 50%;
+    position: absolute;
+    top: 30%;
+    left: 27%;
+    padding: 20px 40px;
+}
+#rtword1{
+    color: #000;
+    font-size: 17px;
+    margin-left: 5%;
+}
+#rtinput1{
+    width: 60%;
+    height: 50%;
+    border-radius: 20px;
+    outline: none;
+    border: 1px solid #ccc;
+}
+#rtword2{
+    margin-left: 11%;
+    color: #000;
+    font-size: 17px;
+}
+#rtinput2{
+    width: 60%;
+    height: 50%;
+    border-radius: 20px;
+    outline: none;
+    border: 1px solid #ccc;
+}
+#rtword3{
+    color: #000;
+    font-size: 17px;
+}
+#rtinput3{
+    width: 60%;
+    height: 50%;
+    border-radius: 20px;
+    outline: none;
+    border: 1px solid #ccc;
+}
+#btn1{
+    width: 25%;
+    height: 10%;
+    background-color: #2d70e5;
+    text-align:center;
+    border: none;
+    border-radius: 4px;
+    margin-top: 5%;
+}

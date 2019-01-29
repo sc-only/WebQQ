@@ -1,0 +1,14 @@
+$(document).ready(function(){
+    $("#text1").focus(function(){
+        $(this).val("");
+    })
+    $("#text3").focus(function(){
+        $(this).val("");
+    })
+    $("#text2").focus(function(){
+        $(this).val("");
+    })
+    $("#text4").focus(function(){
+        $(this).val("");
+    })
+})
