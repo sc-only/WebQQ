@@ -16,6 +16,16 @@ public class User {
     private String firstpinyin ;
     @JsonIgnore
     private String pinyin ;
+    @JsonIgnore
+    private int enter ;
+
+    public int getEnter() {
+        return enter;
+    }
+
+    public void setEnter(int enter) {
+        this.enter = enter;
+    }
 
     public User() {
     }

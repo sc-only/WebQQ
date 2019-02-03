@@ -1,5 +1,6 @@
 package qqweb.login.controller;
 
+import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,7 @@ public class UserController {
                     user.setPassword(password);
                     user.setFirstpinyin(PinYinUtil.toFirstChar(username));
                     user.setPinyin(PinYinUtil.toPinyin(username));
+                    user.setEnter(1);
                     userRepository.save(user);
                     System.out.println("注册成功");
                     return "yes";
@@ -62,7 +64,12 @@ public class UserController {
             if(userRepository.findByUsernameAndPassword(username,password).isEmpty()){
                 return "no";
             }else{
-                System.out.println("用户登录成功");
+                User user = new User();
+                if(user.getEnter()==1){
+                    System.out.println("用户登录成功");
+                }else{
+                    return "no2";
+                }
                 return "yes";
             }
         }else{
@@ -108,8 +115,10 @@ public class UserController {
             list = productService.searchPinYin(username);
         }
         logger.info("查询个数" + list.size());
-        return list;
+//        String json = JSON.toJSONString(list);
+//        return json;
 //        List<User> list = userRepository.findByUsername(username);
-//        return list;
+        System.out.println(list);
+        return list;
     }
 }
