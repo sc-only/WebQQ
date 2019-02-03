@@ -1,10 +1,13 @@
 package qqweb.login.controller;
 
 import com.alibaba.fastjson.JSON;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +16,10 @@ import qqweb.login.Util.PinYinUtil;
 import qqweb.login.domain.User;
 import qqweb.login.repository.UserRepository;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class UserController {
@@ -58,19 +64,20 @@ public class UserController {
 
     @PostMapping(value = "/login")
     public String userFindOne(@RequestParam("username") String username,
-                              @RequestParam("password") String password){
+                              @RequestParam("password") String password) throws JSONException {
         System.out.println("取得参数:" + username + " " + password);
-        if(!userRepository.findByUsername(username).isEmpty()){
+        List<User> list = userRepository.findByUsername(username);
+        if(!list.isEmpty()){
             if(userRepository.findByUsernameAndPassword(username,password).isEmpty()){
                 return "no";
             }else{
-                User user = new User();
-                if(user.getEnter()==1){
+                if(true){
                     System.out.println("用户登录成功");
+                    String json =JSON.toJSONString(list);
+                    return json;
                 }else{
                     return "no2";
                 }
-                return "yes";
             }
         }else{
             return "no1";
@@ -115,10 +122,12 @@ public class UserController {
             list = productService.searchPinYin(username);
         }
         logger.info("查询个数" + list.size());
-//        String json = JSON.toJSONString(list);
+//      ` String json = JSON.toJSONString(list);
 //        return json;
 //        List<User> list = userRepository.findByUsername(username);
         System.out.println(list);
         return list;
     }
+
+//    @GetMapping
 }
