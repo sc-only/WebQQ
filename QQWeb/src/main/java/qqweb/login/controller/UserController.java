@@ -105,6 +105,9 @@ public class UserController {
                     User user = new User();
                     user.setUsername(username);
                     user.setPassword(password);
+                    user.setFirstpinyin(PinYinUtil.toFirstChar(username));
+                    user.setPinyin(PinYinUtil.toPinyin(username));
+                    user.setEnter(1);
                     userRepository.save(user);
                     System.out.println("密码修改成功");
                     return "yes";

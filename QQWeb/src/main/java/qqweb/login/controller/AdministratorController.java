@@ -97,4 +97,18 @@ public class AdministratorController {
             }
         }
     }
+    @PostMapping(value = "/ban")
+    public String administratorBan(@RequestParam("username") String username,
+                                   @RequestParam("password") String password){
+        System.out.println("取得参数" + username);
+        User user = new User();
+        user.setUsername(username);
+        user.setEnter(0);
+        user.setPassword(password);
+        user.setFirstpinyin(PinYinUtil.toFirstChar(username));
+        user.setPinyin(PinYinUtil.toPinyin(username));
+        userRepository.save(user);
+        return "yes";
+    }
+
 }
