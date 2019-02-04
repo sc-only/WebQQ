@@ -19,10 +19,7 @@ $(document).ready(function () {
                     alert("用户名不存在");
                 }else if(data == "no"){
                     alert("密码错误");
-                }else if(data == "no2"){
-                    alert("您的帐号被管理员封禁");
-                }
-                else{
+                }else{
                     console.log(data);
                     var json = JSON.parse(data);
                     for (var i=0; i<json.length; i++) {

@@ -12,12 +12,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import qqweb.login.Service.ProductService;
+import qqweb.login.Util.ConstantUtils;
 import qqweb.login.Util.PinYinUtil;
 import qqweb.login.domain.User;
 import qqweb.login.repository.UserRepository;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -64,20 +69,21 @@ public class UserController {
 
     @PostMapping(value = "/login")
     public String userFindOne(@RequestParam("username") String username,
-                              @RequestParam("password") String password) throws JSONException {
+                              @RequestParam("password") String password, HttpServletRequest request) throws JSONException {
         System.out.println("取得参数:" + username + " " + password);
         List<User> list = userRepository.findByUsername(username);
         if(!list.isEmpty()){
             if(userRepository.findByUsernameAndPassword(username,password).isEmpty()){
                 return "no";
             }else{
-                if(true){
-                    System.out.println("用户登录成功");
-                    String json =JSON.toJSONString(list);
-                    return json;
-                }else{
-                    return "no2";
-                }
+                HttpSession session = request.getSession();
+                User user = new User();
+                user.setUsername(username);
+                user.setPassword(password);
+                session.setAttribute("user",user);
+                System.out.println("用户登录成功");
+                String json =JSON.toJSONString(list);
+                return json;
             }
         }else{
             return "no1";

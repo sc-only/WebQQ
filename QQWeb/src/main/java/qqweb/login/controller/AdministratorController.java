@@ -73,7 +73,28 @@ public class AdministratorController {
         }
     }
 
-    @PostMapping(
-
-    )
+    @PostMapping(value = "/change")
+    public String administratorUpdate(@RequestParam("name") String name,
+                                      @RequestParam("password") String password,
+                                      @RequestParam("repassword") String repassword){
+        System.out.println("取得参数" + name + " " + password + " " + repassword);
+        if(administratorRepository.findByName(name).isEmpty()){
+            return "no1";
+        }else{
+            if(!password.equals(repassword)){
+                return "no2";
+            }else{
+                if(password.length()>=6&&password.length()<=16){
+                    User user = new User();
+                    user.setUsername(name);
+                    user.setPassword(password);
+                    userRepository.save(user);
+                    System.out.println("密码修改成功");
+                    return "yes";
+                }else{
+                    return "no3";
+                }
+            }
+        }
+    }
 }
