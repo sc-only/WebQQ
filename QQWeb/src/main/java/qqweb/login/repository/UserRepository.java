@@ -14,4 +14,5 @@ public interface UserRepository extends JpaRepository<User,String>, JpaSpecifica
     public List<User> findAllByUsernameLike(String key);
     public List<User> findAllByFirstpinyinLike(String key);
     public List<User> findAllByPinyinLike(String key);
+    public List<User> deleteByUsername(String username);
 }

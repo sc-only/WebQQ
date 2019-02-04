@@ -38,7 +38,7 @@ public class UserController {
                           @RequestParam("repassword") String repassword){
         System.out.println("取得参数：" + username +" "+ password +" "+ repassword);
         if(!password.equals(repassword)){
-            System.out.println("no1");
+//            System.out.println("no1");
            return "no1";
         }else{
             if(userRepository.findByUsername(username).isEmpty()){
