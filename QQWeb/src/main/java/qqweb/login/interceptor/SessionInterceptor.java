@@ -14,8 +14,7 @@ public class SessionInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("开始请求地址拦截");
         HttpSession session = request.getSession(false);
-
-        if(session != null && session.getAttribute("user") !=null ){
+        if(session != null && (session.getAttribute("user") !=null || session.getAttribute("administrator")!=null) ){
             System.out.println("可以登录");
             return true;
         }else{

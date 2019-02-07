@@ -5,9 +5,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import qqweb.login.Util.PinYinUtil;
+import qqweb.login.domain.Administrator;
 import qqweb.login.domain.User;
 import qqweb.login.repository.AdministratorRepository;
 import qqweb.login.repository.UserRepository;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @RestController
 public class AdministratorController {
@@ -19,12 +23,17 @@ public class AdministratorController {
 
     @PostMapping(value = "/login2")
     public String administratorFindOne(@RequestParam("name") String name,
-                                       @RequestParam("password") String password){
+                                       @RequestParam("password") String password,HttpServletRequest request){
         System.out.println("取得参数" + name + " " + password);
         if(administratorRepository.findByName(name).isEmpty()){
             return "no1";
         }else{
             if(administratorRepository.findByNameAndPassword(name,password).isEmpty()){
+                HttpSession session = request.getSession();
+                Administrator administrator = new Administrator();
+                administrator.setName(name);
+                administrator.setPassword(password);
+                session.setAttribute("administrator",administrator);
                 return "no2";
             }else{
                 System.out.println("管理员登录成功");
