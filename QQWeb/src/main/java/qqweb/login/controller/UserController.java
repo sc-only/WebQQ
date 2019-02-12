@@ -119,7 +119,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/search")
-    public List<User> findFriend(@RequestParam("username") String username,
+    public String findFriend(@RequestParam("username") String username,
                                  Model model){
         logger.info("username:" + username);
         List<User> list;
@@ -134,8 +134,8 @@ public class UserController {
 //      ` String json = JSON.toJSONString(list);
 //        return json;
 //        List<User> list = userRepository.findByUsername(username);
-        System.out.println(list);
-        return list;
+        String json = JSON.toJSONString(list);
+        return json;
     }
 
 //    @GetMapping

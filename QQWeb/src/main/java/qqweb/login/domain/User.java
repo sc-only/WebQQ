@@ -10,13 +10,13 @@ import javax.persistence.Id;
 public class User {
     @Id
     private String username;
-    @JsonIgnore
+
     private String password ;
-    @JsonIgnore
+
     private String firstpinyin ;
-    @JsonIgnore
-    private String pinyin ;
-    @JsonIgnore
+
+    private String pinyin;
+
     private int enter ;
 
     public int getEnter() {
