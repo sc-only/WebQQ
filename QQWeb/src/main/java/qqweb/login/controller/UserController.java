@@ -7,14 +7,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import qqweb.login.Service.ProductService;
 import qqweb.login.Util.ConstantUtils;
 import qqweb.login.Util.PinYinUtil;
+import qqweb.login.domain.Relation;
 import qqweb.login.domain.User;
+import qqweb.login.repository.RelationRepository;
 import qqweb.login.repository.UserRepository;
 
 import com.google.gson.JsonObject;
@@ -22,6 +21,7 @@ import com.google.gson.JsonParser;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.websocket.server.PathParam;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +36,9 @@ public class UserController {
 
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private RelationRepository relationRepository;
 
     @PostMapping(value = "/register")
     public String userAdd(@RequestParam("username") String username,
@@ -123,11 +126,11 @@ public class UserController {
                                  Model model){
         logger.info("username:" + username);
         List<User> list;
-        if(!productService.searchUser(username).isEmpty()){
-            list = productService.searchUser(username);
-        }else if(!productService.searchFirst(username).isEmpty()){
+        if(!productService.searchFirst(username).isEmpty()){
             list = productService.searchFirst(username);
-        }else{
+        }else if(!productService.searchUser(username).isEmpty()){
+            list = productService.searchUser(username);
+        } else{
             list = productService.searchPinYin(username);
         }
         logger.info("查询个数" + list.size());
@@ -138,5 +141,11 @@ public class UserController {
         return json;
     }
 
-//    @GetMapping
+    @GetMapping(value = "/get/{username}")
+    public String getFriend(@PathVariable("username") String username){
+        System.out.println(username);
+        List<Relation> list = relationRepository.findByFinduser(username);
+        String json = JSON.toJSONString(list);
+        return json;
+    }
 }

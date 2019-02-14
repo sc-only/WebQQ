@@ -18,7 +18,7 @@ public class FindController {
     @Autowired
     private RelationRepository relationRepository;
 
-    @PostMapping(value = "/find")
+    @PostMapping(value = "/addfriend")
     public String addFriends(@RequestParam("finduser") String finduser,
                              @RequestParam("friend") String friend){
         System.out.println("取得参数" + finduser + " " + friend);
