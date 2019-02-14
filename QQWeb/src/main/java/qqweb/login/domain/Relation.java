@@ -14,6 +14,8 @@ public class Relation {
 
     private String friend ;
 
+    private int zan ;
+
     public Relation() {
     }
 
@@ -25,11 +27,19 @@ public class Relation {
         this.finduser = finduser;
     }
 
-    public String getFriend(String finduser) {
+    public String getFriend() {
         return friend;
     }
 
     public void setFriend(String friend) {
         this.friend = friend;
+    }
+
+    public int getZan() {
+        return zan;
+    }
+
+    public void setZan(int zan) {
+        this.zan = zan;
     }
 }
