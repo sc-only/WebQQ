@@ -31,6 +31,8 @@ public class FindController {
             relationB.setFinduser(friend);
             relationA.setZan(0);
             relationB.setZan(0);
+            relationA.setRela(finduser+friend);
+            relationB.setRela(friend+finduser);
             relationRepository.save(relationA);
             relationRepository.save(relationB);
             return "yes";

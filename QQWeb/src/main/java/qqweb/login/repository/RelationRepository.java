@@ -11,4 +11,5 @@ import java.util.List;
 public interface RelationRepository extends JpaRepository<Relation,Integer> {
     public List<Relation> findByFinduserAndFriend(String finduser,String friend);
     public List<Relation> findByFinduser(String username);
+    public List<Relation> findByFriend(String friend);
 }

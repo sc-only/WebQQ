@@ -6,17 +6,24 @@ import javax.persistence.Id;
 
 @Entity
 public class Relation {
-    @Id
-    @GeneratedValue
-    private int id ;
 
     private String finduser ;
 
     private String friend ;
 
     private int zan ;
+    @Id
+    private String rela;
 
     public Relation() {
+    }
+
+    public String getRela() {
+        return rela;
+    }
+
+    public void setRela(String rela) {
+        this.rela = rela;
     }
 
     public String getFinduser() {
