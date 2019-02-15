@@ -10,10 +10,10 @@ import qqweb.login.interceptor.SessionInterceptor;
 @Configuration
 public class WebAppConfig extends WebMvcConfigurerAdapter {
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new SessionInterceptor()).addPathPatterns("/*").excludePathPatterns("/index")
-        .excludePathPatterns("/index2").excludePathPatterns("/index_1").excludePathPatterns("/index_2").excludePathPatterns("/index_3").excludePathPatterns("/login")
-        .excludePathPatterns("/login2").excludePathPatterns("/change").excludePathPatterns("/register").excludePathPatterns("/update");
-    }
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(new SessionInterceptor()).addPathPatterns("/*").excludePathPatterns("/index")
+//        .excludePathPatterns("/index2").excludePathPatterns("/index_1").excludePathPatterns("/index_2").excludePathPatterns("/index_3").excludePathPatterns("/login")
+//        .excludePathPatterns("/login2").excludePathPatterns("/change").excludePathPatterns("/register").excludePathPatterns("/update");
+//    }
 }

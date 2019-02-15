@@ -24,18 +24,18 @@ public class PersonalizedSignatureController {
     private RelationRepository relationRepository;
 
     @PostMapping(value = "/ps")
-    public String personalizedSignatureAdd(@RequestParam("username") String username,
+    public String personalizedSignatureAdd(@RequestParam("name") String name,
                                            @RequestParam("ps") String ps){
-        System.out.println("取得参数" + username + " " + ps);
+        System.out.println("取得参数" + name + " " + ps);
         PersonalizedSignature personalizedSignature = new PersonalizedSignature();
-        personalizedSignature.setUsername(username);
+        personalizedSignature.setUsername(name);
         personalizedSignature.setSignature(ps);
         personalizedSignatureRepository.save(personalizedSignature);
         return "yes";
     }
 
-    @GetMapping(value = "/getps/{username}")
-    public String getPS(@PathVariable("username") String username){
+    @GetMapping(value = "/getps")
+    public String getPS(@RequestParam("username") String username){
         List<PersonalizedSignature> list = personalizedSignatureRepository.findByUsername(username);
         if(list.isEmpty()){
             return " ";

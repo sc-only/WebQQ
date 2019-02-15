@@ -40,6 +40,8 @@ public class UserController {
     @Autowired
     private RelationRepository relationRepository;
 
+    public String jsonsum;
+
     @PostMapping(value = "/register")
     public String userAdd(@RequestParam("username") String username,
                           @RequestParam("password") String password,
@@ -86,11 +88,18 @@ public class UserController {
                 session.setAttribute("user",user);
                 System.out.println("用户登录成功");
                 String json =JSON.toJSONString(list);
+                jsonsum = json;
+                System.out.println(jsonsum);
                 return json;
             }
         }else{
             return "no1";
         }
+    }
+
+    @GetMapping(value = "/username")
+    public String user(){
+        return jsonsum;
     }
 
     @PostMapping(value = "/update")

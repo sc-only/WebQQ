@@ -35,4 +35,9 @@ public class HelloController {
     public String index_3(){
         return "/index_3";
     }
+
+    @RequestMapping(value = "/person_main")
+    public String person_main(){
+        return "/person_main";
+    }
 }
