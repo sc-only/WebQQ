@@ -166,13 +166,19 @@ img{
     color: #2a2a2a;
     font-size: 14px;
 }
-#foot input{
+#pass{
     width:  60%;
     height: 50%;
     border-radius: 10px;
     outline: none;
 }
-#foot div{
+#reps{
+    width:  60%;
+    height: 50%;
+    border-radius: 10px;
+    outline: none;
+}
+#qrxg{
     width: 9%;
     height: 11%;
     background-color: #2a73d6;

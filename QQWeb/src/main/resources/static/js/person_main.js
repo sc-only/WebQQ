@@ -6,6 +6,7 @@ $(document).ready(function(){
         $("#head_1").hide();
     })
     $.ajax({
+        async: false,
         url:"username",
         contentType:"application/x-www-form-urlencoded",
         type: "get",
@@ -16,9 +17,22 @@ $(document).ready(function(){
             }
         }
     });
+    var username  = document.getElementById("name").innerHTML;
+    $.ajax({
+        url:"getps",
+        contentType:"application/x-www-form-urlencoded",
+        type: "post",
+        data:{"username":username},
+        success: function(data) {
+            var json = JSON.parse(data);
+            for (var i = 0 ;i <json.length;i++){
+                document.getElementById("ps").innerHTML = json[i].signature;
+                $("#ps").val(json[i].signature);
+            }
+        }
+    });
     $("#get").click(function () {
         var ps = $("#ps").val();
-        // var name = $("#name").val();
         var name  = document.getElementById("name").innerHTML;
         console.log("修改个性签名");
         $.ajax({
@@ -28,9 +42,8 @@ $(document).ready(function(){
             data: {"name":name,"ps":ps},
             success:function (data) {
                 if(data=="yes"){
-                    alert(name);    
-                    alert("修改个性签名成功");
-                    $("#ps").text(ps);
+                    alert("修改个性签名成功")
+                    $("#ps").val(ps);
                 }else{
                     alert("修改个性签名失败");
                 }
@@ -41,4 +54,31 @@ $(document).ready(function(){
             }
         })
     });
+    $("#qrxg").click(function () {
+        var username  = document.getElementById("name").innerHTML;
+        var password = $("#pass").val();
+        var repassword = $("#reps").val();
+        console.log("修改密码请求");
+        $.ajax({
+            url:"update",
+            contentType:"application/x-www-form-urlencoded",
+            type: "post",
+            data: {"username":username,"password":password,"repassword":repassword},
+            success:function (data) {
+                if(data == "no1"){
+                    alert("用户名不存在");
+                }else if(data == "no2"){
+                    alert("两次密码不同");
+                }else if(data == "no3"){
+                    alert("密码长度要大于6位小于16位");
+                }else if(data == "yes"){
+                    alert("密码修改成功");
+                }
+            },
+            error:function () {
+                console.log(data);
+                alert("修改密码请求失败")
+            }
+        })
+    })
 })

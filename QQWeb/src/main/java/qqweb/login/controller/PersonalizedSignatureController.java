@@ -34,13 +34,14 @@ public class PersonalizedSignatureController {
         return "yes";
     }
 
-    @GetMapping(value = "/getps")
+    @PostMapping(value = "/getps")
     public String getPS(@RequestParam("username") String username){
         List<PersonalizedSignature> list = personalizedSignatureRepository.findByUsername(username);
         if(list.isEmpty()){
             return " ";
         }else{
             String json = JSON.toJSONString(list);
+            System.out.println(json);
             return json;
         }
     }

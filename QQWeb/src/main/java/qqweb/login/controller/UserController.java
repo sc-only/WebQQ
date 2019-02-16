@@ -99,6 +99,7 @@ public class UserController {
 
     @GetMapping(value = "/username")
     public String user(){
+        System.out.println(jsonsum);
         return jsonsum;
     }
 
