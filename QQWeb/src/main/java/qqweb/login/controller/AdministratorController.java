@@ -123,7 +123,7 @@ public class AdministratorController {
         return "yes";
     }
 
-    @GetMapping(value = "/find")
+    @PostMapping(value = "/find")
     public String administratorFind(){
         List<User> list = userRepository.findAll();
         String json = JSON.toJSONString(list);

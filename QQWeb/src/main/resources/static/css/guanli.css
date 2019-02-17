@@ -16,7 +16,7 @@ img{
     background-color: #e5e5e5;
 } 
 #box{
-    width: 60%;
+    width: 62%;
     height: 80%;
     background-color: #fff;
     position: absolute;
@@ -71,9 +71,10 @@ img{
     position: relative;
 }
 #add{
-    width: 32%;
+    width: 31%;
     height: 35%;
     background-color: red;
+    margin-left: 15px;
     float: left;
     text-align: center;
     font-size: 200px;
@@ -83,39 +84,39 @@ img{
     cursor: pointer;
     overflow: hidden;
 }
-#fir{
-    width: 32%;
+.fir{
+    width: 31%;
     height: 35%;
     background-color: #ddd;
     float: left;
     margin-left: 1.5%;
     position: relative;
 }
-#left{
-    width: 60%;
-    height: 100%;
-    /* background-color: #2a73d6; */
-    border-right: 1px solid #bbb;
-}
-#right{
-    width: 40%;
-    height: 100%;
-    /* background-color: yellow; */
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-#le_1{
+/*.left{*/
+    /*width: 60%;*/
+    /*height: 100%;*/
+    /*!* background-color: #2a73d6; *!*/
+    /*border-right: 1px solid #bbb;*/
+/*}*/
+/*.right{*/
+    /*width: 40%;*/
+    /*height: 100%;*/
+    /*!* background-color: yellow; *!*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*right: 0;*/
+/*}*/
+.le_1{
     width: 30%;
     height: 45%;
-    background-color: red;
+    background-color: pink;
     border-radius: 100%;
     position: absolute;
     top: 8%;
     overflow:hidden;
     left: 12%;
 }
-#left p,#left h4,#left span{
+.fir p,.fir h4,.fir span{
     display: inline-block;
     width: 60%;
     height: 15%;
@@ -126,16 +127,16 @@ img{
     left: 0;
     font-size: 14px;
 }
-#left p{
+.fir p{
     top: 55%;
 }
-#left h4{
+.fir h4{
     top: 70%;
 }
-#left span{
+.fir span{
     top: 85%;
 }
-#right ul{
+.fir ul{
     width: 70%;
     height: 75%;
     position: absolute;
@@ -147,7 +148,7 @@ a{
     text-decoration: none;
     color: #fff;
 }
-#right li{
+#fir li{
     width: 100%;
     height: 20%;
     border-radius: 10px;
@@ -156,16 +157,14 @@ a{
     text-align: center;
     line-height: 2;
 }
-#ri_1{
-    background-color: #4079ca;
-}
-#ri_2{
-    background-color: #e82631;
-}
-#ri_3{
-    background-color: #ffda46;
+.ri_2{
+    margin:20% 0;
 }
 img{
     width: 100%;
     height: 100%;
+}
+.fir input{
+    width: 40%;
+    margin-left: 60%;
 }

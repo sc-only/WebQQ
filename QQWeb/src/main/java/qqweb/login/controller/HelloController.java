@@ -50,4 +50,9 @@ public class HelloController {
     public String picture(){
         return "/picture";
     }
+
+    @RequestMapping(value = "/guanli")
+    public String guanli(){
+        return "/guanli";
+    }
 }

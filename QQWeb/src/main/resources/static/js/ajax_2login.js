@@ -13,7 +13,7 @@ $(document).ready(function () {
             success:function (data) {
                 if(data=="yes"){
                     alert("登录成功");
-                    window.location.href="";
+                    window.location.href="guanli";
                 }else if(data == "no1"){
                     alert("用户名不存在");
                 }else if(data == "no2"){
