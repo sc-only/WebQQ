@@ -11,3 +11,8 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
   thymeleaf:
     prefix: classpath:/templates/
+
+server:
+  port: 8080
+com:
+  ccr: ${server.port}

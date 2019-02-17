@@ -3,16 +3,14 @@
 <head>
     <title>上传图片</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <style>
-        #name{
-            /*display: none;*/
-        }
-    </style>
+    <script src="js/username.js"></script>
 </head>
 <body>
+<form action="/upload" method="POST" enctype="multipart/form-data">
     文件：<input type="file" name="test"/>
-    <div id="name",name="username"></div>
+    用户名：<input type="text" name="username">
     <input type="submit" value="上传"/>
+</form>
 
 </body>
 </html>
