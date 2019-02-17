@@ -2,10 +2,7 @@ package qqweb.login.controller;
 
 import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import qqweb.login.Util.PinYinUtil;
 import qqweb.login.domain.Administrator;
 import qqweb.login.domain.User;
@@ -84,6 +81,27 @@ public class AdministratorController {
             }
         }
     }
+    @PostMapping(value = "/pass")
+    public String administratorPass(@RequestParam("username") String username){
+        System.out.println("取得参数" + username);
+        List<User> list = userRepository.findByUsername(username);
+        String json = JSON.toJSONString(list);
+        return json;
+    }
+
+    @PostMapping(value = "/ban")
+    public String administratorBan(@RequestParam("username") String username,
+                                   @RequestParam("password") String password){
+        System.out.println("取得参数" + username);
+        User user = new User();
+        user.setUsername(username);
+        user.setEnter(0);
+        user.setPassword(password);
+        user.setFirstpinyin(PinYinUtil.toFirstChar(username));
+        user.setPinyin(PinYinUtil.toPinyin(username));
+        userRepository.save(user);
+        return "yes";
+    }
 
     @PostMapping(value = "/change")
     public String administratorUpdate(@RequestParam("name") String name,
@@ -108,19 +126,6 @@ public class AdministratorController {
                 }
             }
         }
-    }
-    @PostMapping(value = "/ban")
-    public String administratorBan(@RequestParam("username") String username,
-                                   @RequestParam("password") String password){
-        System.out.println("取得参数" + username);
-        User user = new User();
-        user.setUsername(username);
-        user.setEnter(0);
-        user.setPassword(password);
-        user.setFirstpinyin(PinYinUtil.toFirstChar(username));
-        user.setPinyin(PinYinUtil.toPinyin(username));
-        userRepository.save(user);
-        return "yes";
     }
 
     @PostMapping(value = "/find")

@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $.ajax({
+        async: false,
         url:"find",
         contentType:"application/x-www-form-urlencoded",
         type: "post",
@@ -27,7 +28,7 @@ $(document).ready(function () {
                     newh4.innerHTML="用户名密码";
                     var username = json[i].username;
                     var password = json[i].password;
-                    newp.id=i;
+                    newp.className=username;
                     // $("#"+username).text(username);
                     // $("#"+up).text(password);
                     newp.innerHTML=username;
@@ -48,7 +49,7 @@ $(document).ready(function () {
                     var newinput1 = document.createElement("input");
                     newinput1.type="submit";
                     newinput1.value="修改头像";
-                    newinput1.id="xgtx";
+                    newinput1.className="xgtx";
                     newli1.appendChild(newinput1);
                     var newli2 = document.createElement("li");
                     newli2.className="ri_2";
@@ -56,19 +57,72 @@ $(document).ready(function () {
                     var newinput2 = document.createElement("input");
                     newinput2.type="submit";
                     newinput2.value="帐号删除";
-                    newinput2.id="zhsc";
+                    newinput2.className="zhsc";
                     newli2.appendChild(newinput2);
                     var newli3 = document.createElement("li");
                     newul.appendChild(newli3);
                     var newinput3 = document.createElement("input");
                     newinput3.type="submit";
                     newinput3.value="用户封禁";
-                    newinput3.id="yhfj";
+                    newinput3.className="yhfj";
                     newli3.appendChild(newinput3);
                 }
             }
         },
         error:function () {
         }
+    });
+
+    $(".zhsc").click(function () {
+        var username;
+        username=prompt("请确认你要删除的用户");
+        $.ajax({
+            async: false,
+            url:"delete",
+            contentType:"application/x-www-form-urlencoded",
+            type: "post",
+            data:{"username":username},
+            success:function (data) {
+                if(data=="yes"){
+                    alert("删除成功");
+                    window.location.href="guanli";
+                }else{
+                    alert("用户名不存在");
+                }
+            },
+            error:function () {
+                alert("删除好友请求错误");
+            }
+        });
+    });
+
+    $(".yhfj").click(function () {
+        var username = prompt("请确认你要封禁的对象");
+        $.ajax({
+            async: false,
+            url:"pass",
+            contentType:"application/x-www-form-urlencoded",
+            type: "post",
+            data:{"username":username},
+            success:function (data) {
+                var json = JSON.parse(data);
+                for(var i = 0;i<json.length;i++){
+                    $("#password1").text(json[i].password);
+                }
+            }
+        });
+        var password = document.getElementById("password1").innerHTML;
+        $.ajax({
+            // async: false,
+            url:"ban",
+            contentType:"application/x-www-form-urlencoded",
+            type: "post",
+            data:{"username":username,"password":password},
+            success:function (data) {
+                if(data=="yes"){
+                    alert("用户封禁成功");
+                }
+            }
+        })
     })
 })

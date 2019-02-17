@@ -1,9 +1,43 @@
 $(document).ready(function(){
     $("#add").click(function(){
         $("#addfri").animate({height:'toggle'});
-    })
+    });
     $("#af").click(function(){
         $("#addfri").hide();
+    });
+
+    $("#cz").click(function () {
+        var username = $("#name").val();
+        $.ajax({
+            url:"search",
+            contentType:"application/x-www-form-urlencoded",
+            type: "post",
+            data:{"username":username},
+            success:function (data) {
+                var json = JSON.parse(data);
+                for(var i = 0; i<json.length;i++){
+                    $("#friend").text(json[i].username);
+                }
+            }
+        })
+    });
+
+    $("#tj").click(function () {
+        var finduser = document.getElementById("username").innerHTML;
+        var friend = document.getElementById("friend").innerHTML;
+        $.ajax({
+            url:"addfriend",
+            contentType:"application/x-www-form-urlencoded",
+            type: "post",
+            data:{"finduser":finduser,"friend":friend},
+            success:function (data) {
+                if(data=="yes"){
+                    alert("添加好友成功");
+                }else{
+                    alert("对方已经是你的好友");
+                }
+            }
+        })
     })
 })
 window.onload=function(){

@@ -168,3 +168,6 @@ img{
     width: 40%;
     margin-left: 60%;
 }
+#password1{
+    display: none;
+}

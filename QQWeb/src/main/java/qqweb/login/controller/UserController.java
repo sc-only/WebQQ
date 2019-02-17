@@ -132,8 +132,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/search")
-    public String findFriend(@RequestParam("username") String username,
-                                 Model model){
+    public String findFriend(@RequestParam("username") String username){
         logger.info("username:" + username);
         List<User> list;
         if(!productService.searchFirst(username).isEmpty()){
