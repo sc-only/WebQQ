@@ -8,7 +8,8 @@ $(document).ready(function () {
         success:function (data) {
             var json = JSON.parse(data);
             for(var i =0;i<json.length;i++){
-                $("#username").text(json[i].username);
+                var username = json[i].username;
+                $("#username").text(username);
             }
         }
     });

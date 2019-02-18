@@ -3,10 +3,7 @@ package qqweb.login.domain;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-/**
- * @author 杨友奇
- * @Time 2018/7/27
- */
+
 @Entity(name = "img")
 public class imgTest {
 

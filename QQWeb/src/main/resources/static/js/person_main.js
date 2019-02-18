@@ -31,6 +31,18 @@ $(document).ready(function(){
             }
         }
     });
+    $.ajax({
+        url:"headimage",
+        contentType:"application/x-www-form-urlencoded",
+        type: "post",
+        data:{"username":username},
+        success:function (data) {
+            var json = JSON.parse(data);
+            for(var i = 0 ; i < json.length;i++){
+                $('#grtx').attr('src',json[i].url);
+            }
+        }
+    })
     $("#get").click(function () {
         var ps = $("#ps").val();
         var name  = document.getElementById("name").innerHTML;

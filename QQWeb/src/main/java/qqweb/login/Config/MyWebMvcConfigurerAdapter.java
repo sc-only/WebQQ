@@ -9,7 +9,7 @@ public class MyWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry){
         //指向外部目录
-        registry.addResourceHandler("img//**").addResourceLocations("file:G:/img/");
+        registry.addResourceHandler("img//**").addResourceLocations("file:F:/大学用/东旭/java/作业/寒假作业/git上传/QQWeb/src/main/resources/static/img/");
         super.addResourceHandlers(registry);
     }
 }

@@ -13,6 +13,8 @@ import qqweb.login.Util.ConstantUtils;
 import qqweb.login.Util.PinYinUtil;
 import qqweb.login.domain.Relation;
 import qqweb.login.domain.User;
+import qqweb.login.domain.imgTest;
+import qqweb.login.repository.ImgTestReposrtory;
 import qqweb.login.repository.RelationRepository;
 import qqweb.login.repository.UserRepository;
 
@@ -39,6 +41,9 @@ public class UserController {
 
     @Autowired
     private RelationRepository relationRepository;
+
+    @Autowired
+    private ImgTestReposrtory imgTestReposrtory;
 
     public String jsonsum;
 
@@ -158,5 +163,11 @@ public class UserController {
         return json;
     }
 
-
+    @PostMapping(value = "/headimage")
+    public String getHeadimg(@RequestParam("username") String username){
+        System.out.println("取得参数" + username);
+        List<imgTest> list = imgTestReposrtory.findByUsername(username);
+        String json = JSON.toJSONString(list);
+        return json;
+    }
 }

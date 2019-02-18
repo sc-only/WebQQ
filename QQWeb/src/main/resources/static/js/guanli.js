@@ -8,8 +8,24 @@ $(document).ready(function () {
             var json = JSON.parse(data);
             for(var i= 0 ; i <json.length;i++){
                 if(i==0){
-                    $(".name").text(json[i].username);
+                    var username = json[i].username;
+                    $(".name").text(username);
                     $(".pass").text(json[i].password);
+                    var pic = document.getElementById("prc");
+                    pic.className=username;
+                    $.ajax({
+                        async: false,
+                        url:"headimage",
+                        contentType:"application/x-www-form-urlencoded",
+                        type: "post",
+                        data:{"username":username},
+                        success:function (data) {
+                            var json = JSON.parse(data);
+                            for(var j = 0 ; j < json.length;j++){
+                                $('.'+username).attr('src',json[j].url);
+                            }
+                        }
+                    });
                 }else{
                     var father = document.getElementById("body");
                     var newfie = document.createElement("div");
@@ -28,7 +44,7 @@ $(document).ready(function () {
                     newh4.innerHTML="用户名密码";
                     var username = json[i].username;
                     var password = json[i].password;
-                    newp.className=username;
+                    // newp.className=username;
                     // $("#"+username).text(username);
                     // $("#"+up).text(password);
                     newp.innerHTML=username;
@@ -38,7 +54,22 @@ $(document).ready(function () {
                     newfie.appendChild(newh4);
                     newfie.appendChild(newpass);
                     var newimg = document.createElement("img");
+                    newimg.className=username;
                     newle_1.appendChild(newimg);
+                    $.ajax({
+                        async: false,
+                        url:"headimage",
+                        contentType:"application/x-www-form-urlencoded",
+                        type: "post",
+                        data:{"username":username},
+                        success:function (data) {
+                            var json = JSON.parse(data);
+                            for(var j = 0 ; j < json.length;j++){
+                                // alert(username);
+                                $('.'+username).attr('src',json[j].url);
+                            }
+                        }
+                    });
                     // var newright = document.createElement("div");
                     // newright.className = "right";
                     // newfie.appendChild(newright);
@@ -124,5 +155,5 @@ $(document).ready(function () {
                 }
             }
         })
-    })
+    });
 })

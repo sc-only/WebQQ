@@ -15,6 +15,7 @@ $(document).ready(function () {
                 if(data=="yes"){
                     alert("注册成功");
                     window.location.href="index";
+                    // window.history.back();
                 }else if(data=="no1"){
                     alert("两次密码输入不同");
                 }else if(data=="no2") {

@@ -9,6 +9,7 @@ $(document).ready(function(){
     $("#cz").click(function () {
         var username = $("#name").val();
         $.ajax({
+            async: false,
             url:"search",
             contentType:"application/x-www-form-urlencoded",
             type: "post",
@@ -16,7 +17,21 @@ $(document).ready(function(){
             success:function (data) {
                 var json = JSON.parse(data);
                 for(var i = 0; i<json.length;i++){
-                    $("#friend").text(json[i].username);
+                    var name = json[i].username;
+                    $("#friend").text(name);
+                    $.ajax({
+                        async: false,
+                        url:"headimage",
+                        contentType:"application/x-www-form-urlencoded",
+                        type: "post",
+                        data:{"username":name},
+                        success:function (data) {
+                            var json = JSON.parse(data);
+                            for(var j = 0 ; j < json.length;j++){
+                                $('.up').attr('src',json[j].url);
+                            }
+                        }
+                    });
                 }
             }
         })

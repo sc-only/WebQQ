@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import qqweb.login.Service.imgService;
 import qqweb.login.domain.imgTest;
 import qqweb.login.repository.ImgTestReposrtory;
 
@@ -16,22 +17,21 @@ import java.io.File;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-/*
- * @author 杨友奇
- * @Time 2018/7/27
- */
+
 @Controller
 public class FileController {
 
+    @Autowired
+    private imgService service;
     @Value("${com.ccr}")
     //获取主机端口
     private String post;
     //获取本机ip
     private String host;
     //图片存放根路径
-    private String rootPath = "G:";
+    private String rootPath = "F:";
     //图片存放根目录下的子目录
-    private String sonPath = "/img/";
+    private String sonPath = "/大学用/东旭/java/作业/寒假作业/git上传/QQWeb/src/main/resources/static/img/";
     //获取图片链接
     private String imgPath;
 
@@ -81,11 +81,11 @@ public class FileController {
             file.transferTo(dest);
 
             //将链接保存到URL中
-            imgTest imgTest = new imgTest();
-            imgTest.setUsername(username);
-            imgTest.setUrl(imgPath);
-            imgTestReposrtory.save(imgTest);
-//            imgTest imgTest = service.add(new imgTest(),imgPath,username);
+//            imgTest imgTest = new imgTest();
+//            imgTest.setUsername(username);
+//            imgTest.setUrl(imgPath);
+//            imgTestReposrtory.save(imgTest);
+            imgTest imgTest = service.add(new imgTest(),"img/"+fileName,username);
             return "上传成功";
         } catch (Exception e) {
             return "上传失败";
