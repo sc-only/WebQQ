@@ -1,3 +1,18 @@
+// alert(getCookie("userName"));
+var getCookie = function (name) {
+    var arr;
+    var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+    if (arr = document.cookie.match(reg)){
+        return arr[2];
+    }
+    else
+        return null;
+};
+var friendname =getCookie("userName");
+// document.getElementById("friendname").innerHTML=friendname;
+console.log($('#friendname'));
+alert(friendname);
+$("#friendname").text(friendname);
 $(document).ready(function(){
     $("#head").mouseover(function(){
         $("#head_1").show();

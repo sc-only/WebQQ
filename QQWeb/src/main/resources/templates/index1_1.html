@@ -24,7 +24,7 @@
 
         function login() {
             var name = document.getElementById("mot1").innerHTML;
-            alert(name);
+            // alert(name);
             setCookie('userName',name,7);
             location.href = 'else';
         };
@@ -33,6 +33,10 @@
             delCookie('userName',' ',-1)
         };
 
+        function chat() {
+            var username = document.getElementById("mot1").innerHTML;
+            document.getElementById("ri_top_p1").innerHTML=username;
+        }
     </script>
 </head>
 <body>
@@ -100,7 +104,7 @@
                             <!--</div>-->
                         <!--</li>-->
                         <li>
-                            <div id="mbody_one_top">
+                            <div id="mbody_one_top" onclick="chat()">
                                 <div id="mbody_one_top1">
                                         <!--<a href="else"><img src="img/5.jpg" alt=""></a>-->
                                     <a><img src="img/5.jpg" alt="" onclick="login()" id="fp"></a>
