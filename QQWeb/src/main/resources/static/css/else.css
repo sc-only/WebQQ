@@ -75,7 +75,6 @@ img{
     background-color: #2a73d6;
     border-radius: 100%;
     position: absolute;
-    top: 7%;
     left: 44%;
     overflow: hidden;
 }
@@ -126,12 +125,8 @@ img{
     left: 46%;
     font-size: 40px;
 }
-img{
-    width: 100%;
-    height: 100%;
-}
 #cha{
-    width: 60%;
+    width: 50%;
     height: 100%;
 }
 #charm1{

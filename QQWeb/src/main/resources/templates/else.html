@@ -6,22 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/else.css">
-    <script src="js/jqku.js"></script>
-    <script src="js/else.js"></script>
     <script type="text/javascript">
         // function zan(){
         //     var username  = document.getElementById("name").innerHTML;
         // }
-        var getCookie = function (name) {
-            var arr;
-            var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-            if (arr = document.cookie.match(reg)){
-                return arr[2];
-            }
-            else
-                return null;
-        };
-        alert(getCookie("userName"));
+        // var getCookie = function (name) {
+        //     var arr;
+        //     var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        //     if (arr = document.cookie.match(reg)){
+        //         return arr[2];
+        //     }
+        //     else
+        //         return null;
+        // };
+        // var friendname =getCookie("userName");
+        // // alert(friendname);
+        // document.getElementById("friendname").innerHTML=friendname;
     </script>
 </head>
 <body>
@@ -36,7 +36,7 @@
                 <div id="head">
                     <img src="img/6.jpg" alt="" id="else" onclick="zan()">
                 </div>
-                <p>Lucas</p>
+                <p id="friendname">Lucas</p>
                 <h4>
                     死党二呆，其实，有你真好！
                 </h4>
@@ -47,5 +47,7 @@
             </div>
         </div>
     </div>
+    <script src="js/jqku.js"></script>
+    <script src="js/else.js"></script>
 </body>
 </html>

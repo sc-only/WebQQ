@@ -9,10 +9,12 @@ var getCookie = function (name) {
         return null;
 };
 var friendname =getCookie("userName");
-// document.getElementById("friendname").innerHTML=friendname;
-console.log($('#friendname'));
-alert(friendname);
-$("#friendname").text(friendname);
+document.getElementById("friendname").innerHTML=friendname;
+// console.log($('p'));
+// console.log($('div'));
+// console.log($('#friendname'));
+// alert(friendname);
+// $("p").text(friendname);
 $(document).ready(function(){
     $("#head").mouseover(function(){
         $("#head_1").show();
