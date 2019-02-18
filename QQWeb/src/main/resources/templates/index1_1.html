@@ -8,8 +8,32 @@
     <link rel="stylesheet" href="css/iconfont.css">
     <link rel="stylesheet" href="css/index1_1.css">
 <script src="js/jqku.js"></script>
-<script src="js/index1_1.js"></script>
-    <script src="js/find.js"></script>
+    <!--<script src="js/find.js"></script>-->
+    <script src="js/index1_1.js"></script>
+    <script type="text/javascript">
+        var setCookie = function (name, value, day) {
+            var expires = day * 24 * 60 * 60 * 1000;
+            var exp = new Date();
+            exp.setTime(exp.getTime() + expires);
+            document.cookie = name + "=" + value + ";expires=" + exp.toUTCString();
+        }
+
+        var delCookie = function (name) {
+            setCookie(name, ' ', -1);
+        };
+
+        function login() {
+            var name = document.getElementById("mot1").innerHTML;
+            alert(name);
+            setCookie('userName',name,7);
+            location.href = 'else';
+        };
+
+        function deletecookie() {
+            delCookie('userName',' ',-1)
+        };
+
+    </script>
 </head>
 <body>
     <div id="username"></div>
@@ -63,22 +87,23 @@
                 </div>
                 <div id="mid_body">
                     <ul>
+                        <!--<li>-->
+                            <!--<div id="mbody_one_top">-->
+                                <!--<div id="mbody_one_top1">-->
+                                   <!--<a href="else"><img src="img/3.jpg" alt=""></a>-->
+                                <!--</div>-->
+                                <!--<p id="mot1">JaeHyun</p>-->
+                                <!--<p id="mot2">09:00</p>-->
+                            <!--</div>-->
+                            <!--<div id="mbody_one_body">-->
+                                <!--First, I want to tell you how proud we are. Getting into Columbia and Sydney and so on.-->
+                            <!--</div>-->
+                        <!--</li>-->
                         <li>
                             <div id="mbody_one_top">
                                 <div id="mbody_one_top1">
-                                   <a href="else"><img src="img/3.jpg" alt=""></a>
-                                </div>
-                                <p id="mot1">JaeHyun</p>
-                                <p id="mot2">09:00</p>
-                            </div>
-                            <div id="mbody_one_body">
-                                First, I want to tell you how proud we are. Getting into Columbia and Sydney and so on.
-                            </div>
-                        </li>
-                        <li>
-                            <div id="mbody_one_top">
-                                <div id="mbody_one_top1">
-                                        <a href="else"><img src="img/5.jpg" alt=""></a>
+                                        <!--<a href="else"><img src="img/5.jpg" alt=""></a>-->
+                                    <a><img src="img/5.jpg" alt="" onclick="login()" id="fp"></a>
                                 </div>
                                 <p id="mot1">JaeMin</p>
                                 <p id="mot2">09:00</p>
@@ -87,30 +112,30 @@
                                 First, I want to tell you how proud we are. Getting into Columbia and Sydney and so on.
                             </div>
                         </li>
-                        <li>
-                            <div id="mbody_one_top">
-                                <div id="mbody_one_top1">
-                                        <a href="else"><img src="img/6.jpg" alt=""></a>
-                                </div>
-                                <p id="mot1">RenJun</p>
-                                <p id="mot2">09:00</p>
-                            </div>
-                            <div id="mbody_one_body">
-                                First, I want to tell you how proud we are. Getting into Columbia and Sydney and so on.
-                            </div>
-                        </li>
-                        <li>
-                            <div id="mbody_one_top">
-                                <div id="mbody_one_top1">
-                                        <a href="else"><img src="img/7.jpg" alt=""></a>
-                                </div>
-                                <p id="mot1">ChenLe</p>
-                                <p id="mot2">09:00</p>
-                            </div>
-                            <div id="mbody_one_body">
-                                First, I want to tell you how proud we are. Getting into Columbia and Sydney and so on.
-                            </div>
-                        </li>
+                        <!--<li>-->
+                            <!--<div id="mbody_one_top">-->
+                                <!--<div id="mbody_one_top1">-->
+                                        <!--<a href="else"><img src="img/6.jpg" alt=""></a>-->
+                                <!--</div>-->
+                                <!--<p id="mot1">RenJun</p>-->
+                                <!--<p id="mot2">09:00</p>-->
+                            <!--</div>-->
+                            <!--<div id="mbody_one_body">-->
+                                <!--First, I want to tell you how proud we are. Getting into Columbia and Sydney and so on.-->
+                            <!--</div>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div id="mbody_one_top">-->
+                                <!--<div id="mbody_one_top1">-->
+                                        <!--<a href="else"><img src="img/7.jpg" alt=""></a>-->
+                                <!--</div>-->
+                                <!--<p id="mot1">ChenLe</p>-->
+                                <!--<p id="mot2">09:00</p>-->
+                            <!--</div>-->
+                            <!--<div id="mbody_one_body">-->
+                                <!--First, I want to tell you how proud we are. Getting into Columbia and Sydney and so on.-->
+                            <!--</div>-->
+                        <!--</li>-->
                     </ul>
                 </div>
             </div>

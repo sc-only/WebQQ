@@ -8,17 +8,33 @@
     <link rel="stylesheet" href="css/else.css">
     <script src="js/jqku.js"></script>
     <script src="js/else.js"></script>
+    <script type="text/javascript">
+        // function zan(){
+        //     var username  = document.getElementById("name").innerHTML;
+        // }
+        var getCookie = function (name) {
+            var arr;
+            var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+            if (arr = document.cookie.match(reg)){
+                return arr[2];
+            }
+            else
+                return null;
+        };
+        alert(getCookie("userName"));
+    </script>
 </head>
 <body>
+    <div id="name"></div>
     <div id="main">
         <div id="box">   
             <div id="top">
                 <span>他人主页</span>
-                <p><a href="index1_1.html">＜</a></p>
+                <p><a href="index1_1">＜</a></p>
             </div>
             <div id="body">
                 <div id="head">
-                    <img src="img/6.jpg" alt="" id="else">
+                    <img src="img/6.jpg" alt="" id="else" onclick="zan()">
                 </div>
                 <p>Lucas</p>
                 <h4>

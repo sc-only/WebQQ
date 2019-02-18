@@ -5,7 +5,47 @@ $(document).ready(function(){
     $("#af").click(function(){
         $("#addfri").hide();
     });
-
+    $.ajax({
+        async: false,
+        url:"username",
+        contentType:"application/x-www-form-urlencoded",
+        type: "get",
+        success:function (data) {
+            var json = JSON.parse(data);
+            for(var i =0;i<json.length;i++){
+                var username = json[i].username;
+                $("#username").text(username);
+                // alert(username);
+                $.ajax({
+                    async: false,
+                    url:"get",
+                    contentType:"application/x-www-form-urlencoded",
+                    type: "post",
+                    data:{"username":username},
+                    success:function (data) {
+                        var json = JSON.parse(data);
+                        for(var i = 0 ; i <json.length;i++){
+                            // alert(json[i].friend);
+                            $("#mot1").text(json[i].friend);
+                        }
+                    }
+                });
+                $.ajax({
+                    async: false,
+                    url:"headimage",
+                    contentType:"application/x-www-form-urlencoded",
+                    type: "post",
+                    data:{"username":username},
+                    success:function (data) {
+                        var json = JSON.parse(data);
+                        for(var j = 0 ; j < json.length;j++){
+                            $('#fp').attr('src',json[j].url);
+                        }
+                    }
+                });
+            }
+        }
+    });
     $("#cz").click(function () {
         var username = $("#name").val();
         $.ajax({
@@ -48,12 +88,14 @@ $(document).ready(function(){
             success:function (data) {
                 if(data=="yes"){
                     alert("添加好友成功");
+                    window.location.href="index1_1";
                 }else{
                     alert("对方已经是你的好友");
                 }
             }
-        })
-    })
+        });
+    });
+
 })
 window.onload=function(){
     var Left=document.getElementById("left");

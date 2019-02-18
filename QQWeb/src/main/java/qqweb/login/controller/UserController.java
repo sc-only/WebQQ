@@ -155,8 +155,8 @@ public class UserController {
         return json;
     }
 
-    @GetMapping(value = "/get/{username}")
-    public String getFriend(@PathVariable("username") String username){
+    @PostMapping(value = "/get")
+    public String getFriend(@RequestParam("username") String username){
         System.out.println(username);
         List<Relation> list = relationRepository.findByFinduser(username);
         String json = JSON.toJSONString(list);

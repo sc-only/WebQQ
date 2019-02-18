@@ -130,3 +130,13 @@ img{
     width: 100%;
     height: 100%;
 }
+#cha{
+    width: 60%;
+    height: 100%;
+}
+#charm1{
+    display: none;
+}
+#name{
+    display: none;
+}
