@@ -34,4 +34,31 @@ $(document).ready(function(){
             }
         }
     });
+    $.ajax({
+        async: false,
+        url:"getps",
+        contentType:"application/x-www-form-urlencoded",
+        type: "post",
+        data:{"username":friendname},
+        success: function(data) {
+            var json = JSON.parse(data);
+            for (var i = 0 ;i <json.length;i++){
+                $("#ps").text(json[i].signature);
+            }
+        }
+    });
+    $.ajax({
+        async: false,
+        url:"headimage",
+        contentType:"application/x-www-form-urlencoded",
+        type: "post",
+        data:{"username":friendname},
+        success:function (data) {
+            var json = JSON.parse(data);
+            for(var j = 0 ; j < json.length;j++){
+                // alert(json[j].url);
+                $('#fp').attr('src',json[j].url);
+            }
+        }
+    });
 })

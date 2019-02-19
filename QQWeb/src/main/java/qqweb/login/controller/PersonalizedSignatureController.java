@@ -46,8 +46,8 @@ public class PersonalizedSignatureController {
         }
     }
 
-    @PostMapping(value = "/dianzan/{username}")
-    public int dianzan(@PathVariable("username") String username,
+    @PostMapping(value = "/dianzan")
+    public int dianzan(@RequestParam("username") String username,
                           @RequestParam("friend") String friend,
                           @RequestParam("zan") int zan){
         if(zan==1){

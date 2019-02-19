@@ -25,8 +25,22 @@ $(document).ready(function(){
                     success:function (data) {
                         var json = JSON.parse(data);
                         for(var i = 0 ; i <json.length;i++){
-                            // alert(json[i].friend);
-                            $("#mot1").text(json[i].friend);
+                            var name = json[i].friend;
+                            $("#mot1").text(name);
+                            $.ajax({
+                                async: false,
+                                url:"headimage",
+                                contentType:"application/x-www-form-urlencoded",
+                                type: "post",
+                                data:{"username":name},
+                                success:function (data) {
+                                    var json = JSON.parse(data);
+                                    for(var j = 0 ; j < json.length;j++){
+                                        // $('#fp').attr('src',json[j].url);
+                                        $('#fp').attr('src',json[i].url);
+                                    }
+                                }
+                            });
                         }
                     }
                 });
@@ -39,7 +53,8 @@ $(document).ready(function(){
                     success:function (data) {
                         var json = JSON.parse(data);
                         for(var j = 0 ; j < json.length;j++){
-                            $('#fp').attr('src',json[j].url);
+                            // $('#fp').attr('src',json[j].url);
+                            $('#userp').attr('src',json[i].url);
                         }
                     }
                 });

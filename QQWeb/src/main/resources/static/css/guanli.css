@@ -69,6 +69,7 @@ img{
     /* background-color: #2a73d6; */
     overflow: auto;
     position: relative;
+    overflow: auto;
 }
 #add{
     width: 31%;
