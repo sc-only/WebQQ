@@ -200,3 +200,9 @@ img{
 #name{
     display: none;
 }
+#num{
+    position: absolute;
+    top: 73%;
+    left: 58%;
+    color: pink;
+}

@@ -69,11 +69,18 @@ public class PersonalizedSignatureController {
         }
     }
 
-    @GetMapping(value = "/sum/{username}")
-    public String getSum(@PathVariable("username") String username){
+    @PostMapping(value = "/sum")
+    public String getSum(@RequestParam("username") String username){
         List<Relation> list = relationRepository.findByFriend(username);
         String json = JSON.toJSONString(list);
         return json;
     }
 
+    @PostMapping(value = "/getzan")
+    public String getZan(@RequestParam("friendname") String friendname,
+                         @RequestParam("username") String username){
+        List<Relation> list=relationRepository.findByFinduserAndFriend(username,friendname);
+        String json = JSON.toJSONString(list);
+        return json;
+    }
 }

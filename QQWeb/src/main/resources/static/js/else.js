@@ -61,4 +61,44 @@ $(document).ready(function(){
             }
         }
     });
-})
+    var username = document.getElementById("name").innerHTML;
+    $.ajax({
+        async: false,
+        url:"getzan",
+        contentType:"application/x-www-form-urlencoded",
+        type: "post",
+        data:{"friendname":friendname,"username":username},
+        success:function (data) {
+            var json = JSON.parse(data);
+            for(var i = 0 ; i < json.length;i++){
+                if(json[i].zan==1){
+                    $('#cha').attr('src','img/2.png');
+                    document.getElementById("charm1").innerHTML=1;
+                }else{
+                    document.getElementById("charm1").innerHTML=0;
+                    $('#cha').attr('src','img/1.png');
+                }
+            }
+        }
+    })
+});
+function dianzan() {
+    var username = document.getElementById("name").innerHTML;
+    var zan = parseInt(document.getElementById("charm1").innerHTML);
+    $.ajax({
+        async: false,
+        url:"dianzan",
+        contentType:"application/x-www-form-urlencoded",
+        type: "post",
+        data:{"username":username,"friend":friendname,"zan":zan},
+        success:function (data) {
+            if(data==1){
+                document.getElementById("charm1").innerHTML=1;
+                $('#cha').attr('src','img/2.png');
+            }else{
+                document.getElementById("charm1").innerHTML=0;
+                $('#cha').attr('src','img/1.png');
+            }
+        }
+    })
+}

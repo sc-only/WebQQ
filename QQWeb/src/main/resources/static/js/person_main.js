@@ -92,5 +92,23 @@ $(document).ready(function(){
                 alert("修改密码请求失败")
             }
         })
+    });
+    var username = document.getElementById("name").innerHTML;
+    $.ajax({
+        url:"sum",
+        async: false,
+        contentType:"application/x-www-form-urlencoded",
+        type: "post",
+        data: {"username":username},
+        success:function (data) {
+            var sum=0;
+            var json = JSON.parse(data);
+            for(var i = 0 ; i < json.length;i++){
+                if(json[i].zan==1){
+                    sum++;
+                }
+            }
+            document.getElementById("num").innerHTML=sum;
+        }
     })
 })
