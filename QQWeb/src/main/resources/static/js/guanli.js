@@ -75,8 +75,11 @@ $(document).ready(function () {
                     // newfie.appendChild(newright);
                     var newul = document.createElement("ul");
                     newfie.appendChild(newul);
+                    var newa = document.createElement("a");
+                    newa.href="picture";
+                    newul.appendChild(newa);
                     var newli1 = document.createElement("li");
-                    newul.appendChild(newli1);
+                    newa.appendChild(newli1);
                     var newinput1 = document.createElement("input");
                     newinput1.type="submit";
                     newinput1.value="修改头像";
