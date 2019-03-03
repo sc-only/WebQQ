@@ -19,7 +19,7 @@
             var exp = new Date();
             exp.setTime(exp.getTime() + expires);
             document.cookie = name + "=" + value + ";expires=" + exp.toUTCString();
-        }
+        };
 
         var delCookie = function (name) {
             setCookie(name, ' ', -1);

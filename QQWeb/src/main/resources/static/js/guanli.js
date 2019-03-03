@@ -44,7 +44,6 @@ $(document).ready(function () {
                     newh4.innerHTML="用户名密码";
                     var username = json[i].username;
                     var password = json[i].password;
-                    // newp.className=username;
                     // $("#"+username).text(username);
                     // $("#"+up).text(password);
                     newp.innerHTML=username;
@@ -83,6 +82,7 @@ $(document).ready(function () {
                     var newinput1 = document.createElement("input");
                     newinput1.type="submit";
                     newinput1.value="修改头像";
+                    newinput1.id=username;
                     newinput1.className="xgtx";
                     newli1.appendChild(newinput1);
                     var newli2 = document.createElement("li");
@@ -92,6 +92,7 @@ $(document).ready(function () {
                     newinput2.type="submit";
                     newinput2.value="帐号删除";
                     newinput2.className="zhsc";
+                    newinput2.id=username;
                     newli2.appendChild(newinput2);
                     var newli3 = document.createElement("li");
                     newul.appendChild(newli3);
@@ -99,6 +100,7 @@ $(document).ready(function () {
                     newinput3.type="submit";
                     newinput3.value="用户封禁";
                     newinput3.className="yhfj";
+                    newinput3.id=username;
                     newli3.appendChild(newinput3);
                 }
             }
@@ -106,10 +108,10 @@ $(document).ready(function () {
         error:function () {
         }
     });
-
     $(".zhsc").click(function () {
         var username;
         username=prompt("请确认你要删除的用户");
+        // alert($(".zhsc").attr("id"));
         $.ajax({
             async: false,
             url:"delete",

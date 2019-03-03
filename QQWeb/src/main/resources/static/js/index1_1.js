@@ -71,6 +71,9 @@ $(document).ready(function(){
             data:{"username":username},
             success:function (data) {
                 var json = JSON.parse(data);
+                if(json.length==0){
+                    alert("查无此人");
+                }
                 for(var i = 0; i<json.length;i++){
                     var name = json[i].username;
                     $("#friend").text(name);

@@ -29,13 +29,13 @@ public class AdministratorController {
             return "no1";
         }else{
             if(administratorRepository.findByNameAndPassword(name,password).isEmpty()){
+                return "no2";
+            }else{
                 HttpSession session = request.getSession();
                 Administrator administrator = new Administrator();
                 administrator.setName(name);
                 administrator.setPassword(password);
                 session.setAttribute("administrator",administrator);
-                return "no2";
-            }else{
                 System.out.println("管理员登录成功");
                 return "yes";
             }
